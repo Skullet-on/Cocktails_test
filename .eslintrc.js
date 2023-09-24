@@ -34,6 +34,9 @@ module.exports = {
     "@typescript-eslint/no-var-requires": 0,
     "import/prefer-default-export": 0,
     "react/jsx-filename-extension": 0,
-    "no-params-reassign": 0,
+    "no-param-reassign": 0,
+    "jsx-a11y/no-noninteractive-element-interactions": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "react/jsx-props-no-spreading": 0,
   },
 };

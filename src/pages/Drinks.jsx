@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import PropTypes from "prop-types";
 import {
   cocktailSelector,
   getCocktail,
@@ -9,13 +10,13 @@ import { capitalizeFirstLetter } from "../helpers/functools";
 import { CocktailView } from "../components/CocktailView/CocktailView";
 import "./Drinks.scss";
 
-export function Drinks({ cocktail_code }) {
+export function Drinks({ cocktailCode }) {
   const dispatch = useDispatch();
   const { drinks, currentDrink } = useSelector(cocktailSelector);
 
   useEffect(() => {
-    dispatch(getCocktail(cocktail_code));
-  }, [cocktail_code]);
+    dispatch(getCocktail(cocktailCode));
+  }, [cocktailCode]);
 
   const handleChangeDrink = (drink) => {
     dispatch(setCurrentDrink(drink));
@@ -23,7 +24,7 @@ export function Drinks({ cocktail_code }) {
 
   return (
     <div className="drinks__container">
-      <h1>Available {capitalizeFirstLetter(cocktail_code)} cocktails:</h1>
+      <h1>Available {capitalizeFirstLetter(cocktailCode)} cocktails:</h1>
       <ul className="drinks__button_list">
         {drinks.map((drink) => (
           <li
@@ -39,3 +40,11 @@ export function Drinks({ cocktail_code }) {
     </div>
   );
 }
+
+Drinks.propTypes = {
+  cocktailCode: PropTypes.string,
+};
+
+Drinks.defaultProps = {
+  cocktailCode: "",
+};

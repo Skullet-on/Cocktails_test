@@ -19,7 +19,7 @@ function App() {
             <Route
               key={code}
               path={`/${code}`}
-              element={<Drinks cocktail_code={code} />}
+              element={<Drinks cocktailCode={code} />}
             />
           );
         })}

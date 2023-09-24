@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 export function LazyImage({ src, placeholderImg, errorImg, ...props }) {
   const [imgSrc, setSrc] = useState(placeholderImg || src);
@@ -24,3 +25,15 @@ export function LazyImage({ src, placeholderImg, errorImg, ...props }) {
 
   return <img {...props} alt={imgSrc} src={imgSrc} />;
 }
+
+LazyImage.propTypes = {
+  src: PropTypes.string,
+  placeholderImg: PropTypes.string,
+  errorImg: PropTypes.string,
+};
+
+LazyImage.defaultProps = {
+  src: "",
+  placeholderImg: "",
+  errorImg: "",
+};

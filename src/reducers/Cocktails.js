@@ -14,9 +14,9 @@ export const getCocktail = createAsyncThunk(
         ? response.data
         : rejectWithValue(response);
     } catch (error) {
-      rejectWithValue(error);
+      return rejectWithValue(error);
     }
-  }
+  },
 );
 
 const initialState = {

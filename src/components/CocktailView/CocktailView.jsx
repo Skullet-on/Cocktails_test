@@ -8,7 +8,7 @@ import "./CocktailView.scss";
 export function CocktailView() {
   const { currentDrink } = useSelector(cocktailSelector);
   const ingredients = Object.keys(currentDrink).filter((name) =>
-    name.includes("Ingredient")
+    name.includes("Ingredient"),
   );
 
   return (

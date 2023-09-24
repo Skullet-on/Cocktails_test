@@ -8,7 +8,7 @@ export const request = async (
   headers,
   data,
   params,
-  responseType
+  responseType,
 ) => {
   const config = {
     method,
