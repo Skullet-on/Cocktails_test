@@ -1,7 +1,7 @@
 .sidebar__container {
 	background-color: black;
 	display: flex;
-	min-height: 100vh;
+	min-height: calc(100vh - 16px);
 	min-width: 200px;
 	flex-direction: column;
 }
