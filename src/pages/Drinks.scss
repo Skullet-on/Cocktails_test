@@ -1,0 +1,31 @@
+.drinks__container {
+	display: flex;
+	flex-direction: column;
+	padding: 16px;
+	min-width: calc(1024px - 232px);
+}
+
+.drinks__button_list {
+	display: flex;
+	flex-wrap: wrap;
+  background-color: aquamarine;
+	list-style-type: none;
+	transition: all .5s;
+}
+
+.drinks__button {
+	padding: 8px;
+	transition: all .5s;
+	cursor: pointer;
+}
+
+.drinks__button:hover {
+	background-color: aqua;
+	transition: all .5s;
+}
+
+@media screen and (max-width: '1024px') {
+	.drinks__container {
+		min-width: calc(100vw - 264px);
+	}
+}
