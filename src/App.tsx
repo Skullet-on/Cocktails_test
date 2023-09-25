@@ -16,12 +16,11 @@ function App() {
                 {cocktailCodes.map((code: string) => (
                     <Route
                         key={code}
-                        path={`/Cocktails_test/${code}`}
+                        path={`/${code}`}
                         element={<Drinks cocktailCode={code}/>}
                     />
                 ))}
-                <Route path="/Cocktails_test/" element={<Navigate to={`/Cocktails_test/${cocktailCodes[0]}`}/>}/>
-                <Route path="/" element={<Navigate to={`/Cocktails_test/${cocktailCodes[0]}`}/>}/>
+                <Route path="/" element={<Navigate to={`/${cocktailCodes[0]}`}/>}/>
                 <Route
                     path="*"
                     element={

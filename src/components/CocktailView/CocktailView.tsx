@@ -10,7 +10,7 @@ export function CocktailView({ drink }: { drink: IDrink}) {
     });
 
     return (
-        <div>
+        <div className="cocktailView__drink">
             <div className="cocktailView__descriptions">
                 <div className="cocktailView__main_info">
                     <h1 className="cocktailView__name">{drink && drink.strDrink}</h1>

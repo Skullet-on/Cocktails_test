@@ -11,7 +11,7 @@ export function Sidebar() {
     return (
         <div className="sidebar__container">
             {cocktailCodes.map((code) => (
-                <NavLink key={code} to={`/Cocktails_test/${code}`} className="sidebar__link">
+                <NavLink key={code} to={`/${code}`} className="sidebar__link">
                     {capitalizeFirstLetter(code)}
                 </NavLink>
             ))}

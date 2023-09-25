@@ -3,8 +3,9 @@
 .drinks__container {
 	display: flex;
 	flex-direction: column;
-	padding: 16px;
 	min-width: calc(1024px - 232px);
+	padding: 0 16px;
+	gap: 16px;
 }
 
 .drinks__button_list {
