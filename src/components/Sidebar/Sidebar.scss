@@ -1,5 +1,7 @@
+@import "./src/static/styles/Variables";
+
 .sidebar__container {
-	background-color: black;
+	background-color: $black;
 	display: flex;
 	min-height: calc(100vh - 16px);
 	min-width: 200px;
@@ -9,26 +11,25 @@
 .sidebar__link {
 	padding: 8px 16px;
 	text-decoration: none;
-	font-family: sans-serif;
+	font-family: $font;
 	font-size: 20px;
 	font-weight: 500;
-	color: aliceblue;
+	color: $white;
 	transition: all .5s;
 	overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.sidebar__link:hover {
-	background-color: rgba(255, 255, 255, 0.6);
-	transition: all .5s;
+  	text-overflow: ellipsis;
+	&:hover {
+		background-color: $active;
+		transition: all .5s;
+	}
 }
 
 .active {
-	background-color: cornflowerblue;
+	background-color: $active;
 	transition: all .5s;
 }
 
-@media screen and (max-width: '800px') {
+@media screen and (max-width: $md) {
 	.sidebar__container {
 		min-width: 100px;
 	} 

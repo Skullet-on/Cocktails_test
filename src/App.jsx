@@ -14,15 +14,13 @@ function App() {
     <div className={styles.container}>
       <Sidebar />
       <Routes>
-        {cocktailCodes.map((code) => {
-          return (
+        {cocktailCodes.map((code) => (
             <Route
               key={code}
               path={`/${code}`}
               element={<Drinks cocktailCode={code} />}
             />
-          );
-        })}
+          ))}
         <Route path="/" element={<Navigate to={cocktailCodes[0]} />} />
         <Route
           path="*"

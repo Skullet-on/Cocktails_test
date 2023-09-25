@@ -28,7 +28,7 @@ export function Drinks({ cocktailCode }) {
       <ul className="drinks__button_list">
         {drinks.map((drink) => (
           <li
-            className="drinks__button"
+            className={drink.idDrink === currentDrink.idDrink ? "drinks__button active" : "drinks__button"}
             key={drink.idDrink}
             onClick={() => handleChangeDrink(drink)}
           >

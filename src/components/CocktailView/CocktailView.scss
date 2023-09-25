@@ -1,29 +1,34 @@
+
+@import "./src/static/styles/Variables";
 .cocktailView__descriptions {
 	display: flex;
 	padding: 16px 0;
 }
-
-.cocktailView__main_info, .cocktailView__image_container {
+.cocktailView__main_info {
 	width: 50%;
+	p {
+		margin: 0;
+	}
 }
-
-.cocktailView__main_info p {
-	margin: 0;
+.cocktailView__image_container {
+	width: 50%;
+	img {
+		width: 100%;
+	}
 }
-
-.cocktailView__image_container img {
-	width: 100%;
+.cocktailView__ingredients {
+	p {
+		margin: 0;
+	}
 }
-
-.cocktailView__ingredients p {
-	margin: 0;
-}
-
-@media screen and (max-width: '800px') {
+@media screen and (max-width: $md) {
 	.cocktailView__descriptions {
 		flex-direction: column;
 	}
-	.cocktailView__main_info, .cocktailView__image_container {
+	.cocktailView__main_info {
+		width: 100%;
+	}
+	.cocktailView__image_container {
 		width: 100%;
 	}
 }

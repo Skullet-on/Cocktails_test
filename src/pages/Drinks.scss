@@ -1,3 +1,5 @@
+@import "src/static/styles/Variables";
+
 .drinks__container {
 	display: flex;
 	flex-direction: column;
@@ -8,7 +10,7 @@
 .drinks__button_list {
 	display: flex;
 	flex-wrap: wrap;
-  background-color: aquamarine;
+  	background-color: $main;
 	list-style-type: none;
 	transition: all .5s;
 }
@@ -17,11 +19,12 @@
 	padding: 8px;
 	transition: all .5s;
 	cursor: pointer;
-}
+	font-family: $font;
 
-.drinks__button:hover {
-	background-color: aqua;
-	transition: all .5s;
+	&:hover {
+		background-color: $active;
+		transition: all .5s;
+	}
 }
 
 @media screen and (max-width: '1024px') {
