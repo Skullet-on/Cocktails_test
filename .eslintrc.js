@@ -9,6 +9,8 @@ module.exports = {
     "airbnb",
     "prettier",
     "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   overrides: [
     {
@@ -21,13 +23,20 @@ module.exports = {
       },
     },
   ],
-  parser: "@babel/eslint-parser",
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: "latest",
     sourceType: "module",
+  },
+  settings: {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   },
   plugins: ["@typescript-eslint", "react"],
   rules: {
@@ -38,5 +47,15 @@ module.exports = {
     "jsx-a11y/no-noninteractive-element-interactions": 0,
     "jsx-a11y/click-events-have-key-events": 0,
     "react/jsx-props-no-spreading": 0,
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
   },
 };
