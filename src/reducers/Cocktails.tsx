@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ICurrentDrink } from "../types/ICurrentDrink";
+import { IDrink } from "IDrink";
 import { CocktailApi } from "../api/Cocktail";
 import { RootState } from "../store/configureStore";
 
@@ -23,8 +23,8 @@ export const getCocktail = createAsyncThunk(
 
 export type cocktailStateType = {
     cocktailCodes: string[];
-    drinks: ICurrentDrink[] | null;
-    currentDrink?: ICurrentDrink | null;
+    drinks: IDrink[] | null;
+    currentDrink?: IDrink | null;
 }
 
 const initialState: cocktailStateType = {
@@ -37,7 +37,7 @@ export const cocktailSlice = createSlice({
     name: "cocktails",
     initialState,
     reducers: {
-        setCurrentDrink: (state: cocktailStateType, { payload }: { payload: ICurrentDrink }) => {
+        setCurrentDrink: (state: cocktailStateType, { payload }: { payload: IDrink }) => {
             state.currentDrink = payload;
         },
     },
@@ -45,7 +45,7 @@ export const cocktailSlice = createSlice({
         [getCocktail.pending.type]: (state: cocktailStateType) => {
             state.currentDrink = null;
         },
-        [getCocktail.fulfilled.type]: (state: cocktailStateType, { payload }: { payload: { drinks: ICurrentDrink[] } }) => {
+        [getCocktail.fulfilled.type]: (state: cocktailStateType, { payload }: { payload: { drinks: IDrink[] } }) => {
             state.drinks = payload.drinks;
         },
     },

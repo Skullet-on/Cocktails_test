@@ -27,7 +27,7 @@
 	}
 }
 
-@media screen and (max-width: '1024px') {
+@media screen and (max-width: $lg) {
 	.drinks__container {
 		min-width: calc(100vw - 264px);
 	}
