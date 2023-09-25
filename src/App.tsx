@@ -2,9 +2,10 @@ import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Sidebar } from "./components/Sidebar/Sidebar";
-import { Drinks } from "./pages/Drinks";
+import { Drinks } from "./pages/Drinks/Drinks";
 import { cocktailSelector, cocktailStateType } from "./reducers/Cocktails";
 import "./App.scss";
+import { NotFoundPage } from "./pages/404/404";
 
 function App() {
     const { cocktailCodes }: cocktailStateType = useSelector(cocktailSelector);
@@ -23,11 +24,7 @@ function App() {
                 <Route path="/" element={<Navigate to={`/${cocktailCodes[0]}`}/>}/>
                 <Route
                     path="*"
-                    element={
-                        <div>
-                            <h2>404 Page not found</h2>
-                        </div>
-                    }
+                    element={<NotFoundPage />}
                 />
             </Routes>
         </div>
