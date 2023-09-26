@@ -1,20 +1,26 @@
 const path = require("path");
 const MediaQueryPlugin = require("media-query-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     mode: "development",
-    entry: "./index.tsx",
+    entry: [
+        path.resolve(__dirname, 'index.tsx')
+    ],
     output: {
         path: path.resolve(__dirname, "public"),
-        filename: "main.js",
+        filename: "[name][contenthash].js",
+        assetModuleFilename: "[name][ext]",
+        clean: true,
     },
     target: "web",
     devServer: {
         port: "3000",
-        static: ["./public"],
         historyApiFallback: true,
+        static: path.join(__dirname, "public"),
         open: true,
         hot: true,
+        compress: true,
         liveReload: true,
     },
     resolve: {
@@ -29,32 +35,15 @@ module.exports = {
             },
             {
                 test: /\.(ts)x?$/,
-                exclude: /node_modules|\.d\.ts$/, // this line as well
+                exclude: /node_modules|\.d\.ts$/,
                 use: {
                     loader: 'ts-loader',
                     options: {
                         compilerOptions: {
-                            noEmit: false, // this option will solve the issue
+                            noEmit: false,
                         },
                     },
                 },
-            },
-            {
-                test: /\.s?css$/,
-                use: [
-                    "style-loader",
-                    {
-                        loader: "css-loader",
-                        options: {
-                            sourceMap: true,
-                            importLoaders: 1,
-                            modules: true,
-                        },
-                    },
-                    MediaQueryPlugin.loader,
-                    "sass-loader",
-                ],
-                include: /\.module\.scss$/,
             },
             {
                 test: /\.s?css$/,
@@ -68,12 +57,15 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
-                use: [
-                    {
-                        loader: "file-loader",
-                    },
-                ],
+                type: "asset/resource",
             },
         ],
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: "Cocktails",
+            filename: "index.html",
+            template: "src/index.html"
+        })
+    ]
 };

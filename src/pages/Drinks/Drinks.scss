@@ -1,11 +1,11 @@
-@import "src/static/styles/Variables";
+@import "./src/static/styles/Variables";
 
 .drinks__container {
 	display: flex;
 	flex-direction: column;
-	min-width: calc(1024px - 232px);
-	padding: 0 16px;
 	gap: 16px;
+	width: 100%;
+	height: 100%;
 }
 
 .drinks__button_list {
@@ -25,11 +25,5 @@
 	&:hover {
 		background-color: $active;
 		transition: all .5s;
-	}
-}
-
-@media screen and (max-width: $lg) {
-	.drinks__container {
-		min-width: calc(100vw - 264px);
 	}
 }

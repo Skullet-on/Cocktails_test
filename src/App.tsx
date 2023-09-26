@@ -13,20 +13,22 @@ function App() {
     return (
         <div className="App__container">
             <Sidebar/>
-            <Routes>
-                {cocktailCodes.map((code: string) => (
+            <div className="App__page">
+                <Routes>
+                    {cocktailCodes.map((code: string) => (
+                        <Route
+                            key={code}
+                            path={`/${code}`}
+                            element={<Drinks cocktailCode={code}/>}
+                        />
+                    ))}
+                    <Route path="/" element={<Navigate to={`/${cocktailCodes[0]}`}/>}/>
                     <Route
-                        key={code}
-                        path={`/${code}`}
-                        element={<Drinks cocktailCode={code}/>}
+                        path="*"
+                        element={<NotFoundPage />}
                     />
-                ))}
-                <Route path="/" element={<Navigate to={`/${cocktailCodes[0]}`}/>}/>
-                <Route
-                    path="*"
-                    element={<NotFoundPage />}
-                />
-            </Routes>
+                </Routes>
+            </div>
         </div>
     );
 }

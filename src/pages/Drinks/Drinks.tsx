@@ -4,10 +4,11 @@ import { cocktailSelector, cocktailStateType, getCocktail } from "../../reducers
 import { CocktailView } from "../../components/CocktailView/CocktailView";
 import { useAppDispatch } from "../../store/configureStore";
 import "./Drinks.scss";
+import { Spinner } from "../../components/Spinner/Spinner";
 
 export function Drinks({ cocktailCode }: { cocktailCode: string }) {
     const dispatch = useAppDispatch();
-    const { drinks }: cocktailStateType = useSelector(cocktailSelector);
+    const { drinks, isFetching }: cocktailStateType = useSelector(cocktailSelector);
 
     useEffect(() => {
         dispatch(getCocktail(cocktailCode));
@@ -15,7 +16,7 @@ export function Drinks({ cocktailCode }: { cocktailCode: string }) {
 
     return (
         <div className="drinks__container">
-            {drinks && drinks.map((drink) => (<CocktailView key={drink.idDrink} drink={drink} />))}
+            {isFetching ? <Spinner /> : drinks && drinks.map((drink) => (<CocktailView key={drink.idDrink} drink={drink} />))}
         </div>
     );
 }

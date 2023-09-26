@@ -3,6 +3,7 @@
 .cocktailView__descriptions {
 	display: flex;
 	padding: 16px 0;
+	justify-content: space-between;
 }
 .cocktailView__main_info {
 	width: auto;
